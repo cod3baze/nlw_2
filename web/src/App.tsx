@@ -1,11 +1,11 @@
 import React from "react";
+// COMPONENTS
+import Routes from "./routes";
+// STYLES | STATIC
+import "./assets/styles/global.css";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello world</h1>
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;
