@@ -1,4 +1,5 @@
 import React from "react";
+import api from "../../services";
 // STYLES | STATICS
 import "./styles.css";
 import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
@@ -19,6 +20,12 @@ interface TeacherItemProps {
 }
 
 const TeacherItem: React.FC<TeacherItemProps> = (props) => {
+  function createNewConnection() {
+    api.post("/connections", {
+      user_id: props.teacher.id,
+    });
+  }
+
   return (
     <article className="teacher-item">
       <header>
@@ -38,6 +45,7 @@ const TeacherItem: React.FC<TeacherItemProps> = (props) => {
         </p>
 
         <a
+          onClick={createNewConnection}
           target="_BLANK"
           rel="noopener noreferrer"
           href={`https://wa.me/${props.teacher.whatsapp}?text="from: GENESIS"`}
