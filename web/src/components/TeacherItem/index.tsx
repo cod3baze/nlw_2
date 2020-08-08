@@ -3,39 +3,48 @@ import React from "react";
 import "./styles.css";
 import whatsappIcon from "../../assets/images/icons/whatsapp.svg";
 
-const TeacherItem: React.FC = () => {
+export interface Teacher {
+  avatar: string;
+  bio: string;
+  cost: Number;
+  id: Number;
+  name: string;
+  subject: string;
+  user_id: string;
+  whatsapp: string;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = (props) => {
   return (
     <article className="teacher-item">
       <header>
-        <img
-          src="https://avatars0.githubusercontent.com/u/35645590?s=460&u=2b86fc193b30e15abe3ad4df935ee7b7edf4cbd4&v=4"
-          alt="Elias alexandre"
-        />
+        <img src={props.teacher.avatar} alt="Elias alexandre" />
         <div>
-          <strong>Elias alexandre</strong>
-          <span>Química</span>
+          <strong>{props.teacher.name}</strong>
+          <span>{props.teacher.subject}</span>
         </div>
       </header>
 
-      <p>
-        Entusiasta das melhores tecnoogias de química avançada.
-        <br />
-        <br />
-        Apoixonado por explodir coisas em laboratório e por mudar a vida das
-        pessoas através de exeriências. Mais de 200.000 pessoas já passaram por
-        uma das minhas explosões.
-      </p>
+      <p>{props.teacher.bio}</p>
 
       <footer>
         <p>
           Preço/hora
-          <strong>120,00 $</strong>
+          <strong>{props.teacher.cost},00 $</strong>
         </p>
 
-        <button type="button">
+        <a
+          target="_BLANK"
+          rel="noopener noreferrer"
+          href={`https://wa.me/${props.teacher.whatsapp}?text="from: GENESIS"`}
+        >
           <img src={whatsappIcon} alt="Entrar em contato" />
           Entrar em contato
-        </button>
+        </a>
       </footer>
     </article>
   );

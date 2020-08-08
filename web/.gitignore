@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+.svg
 .pnp.js
 *.env
 

@@ -3,3 +3,7 @@ node_modules/**/*
 *NLW_wallpapers
 
 * 01
+*.svg
+*.png
+.PNG
+images/**/*
